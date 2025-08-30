@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ====== BASIC SEO ====== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Online Image Compressor – Fast, Secure, SEO‑Optimized</title>
+  <meta name="description" content="Compress images online with adjustable quality. No upload to server – everything runs in your browser. SEO‑optimized, mobile‑friendly, with AdSense slots." />
+  <meta name="keywords" content="image compressor, compress jpg online, reduce image size, webp compressor, photo optimizer, png compressor, gif compressor, avif compressor, svg optimizer" />
+  <link rel="canonical" href="https://example.com/image-compressor" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Free Online Image Compressor – Fast, Secure" />
+  <meta property="og:description" content="Drag & drop images and choose compression level. 100% client‑side. Download optimized files instantly." />
+  <meta property="og:url" content="https://example.com/image-compressor" />
+  <meta property="og:image" content="https://example.com/og-image-compressor.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Online Image Compressor",
+    "url": "https://example.com/image-compressor",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Any",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+  }
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR-ADSENSE-PUBLISHER-ID" crossorigin="anonymous"></script>
+
+  <!-- ====== STYLES ====== -->
+  <style>
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f7f9fc;color:#222;line-height:1.5}
+    header,footer{background:#1e293b;color:#fff;text-align:center;padding:1rem}
+    main{max-width:1200px;margin:0 auto;padding:1rem}
+    .uploader{border:2px dashed #4b5563;padding:2rem;text-align:center;background:#fff;margin-bottom:1rem}
+    input[type=file]{margin:1rem 0}
+    label{display:block;margin-top:1rem}
+    .preview{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem}
+    .preview div{background:#fff;padding:1rem;border:1px solid #ccc;border-radius:6px;width:220px;text-align:center}
+    img{max-width:100%;height:auto}
+    .ads{margin:1.5rem 0;text-align:center}
+    @media(max-width:600px){.preview div{width:100%}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Online Image Compressor – JPG, PNG, WebP, GIF, SVG, AVIF</h1>
+    <p>Compress and optimize all image formats online, client‑side, secure, and fast.</p>
+  </header>
+
+  <!-- Top Ad -->
+  <div class="ads">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR-ADSENSE-PUBLISHER-ID" data-ad-slot="YOUR-AD-UNIT-TOP" data-ad-format="auto"></ins>
+  </div>
+
+  <main>
+    <section class="uploader">
+      <h2>Upload Images</h2>
+      <input type="file" id="fileInput" multiple accept="image/*">
+
+      <label for="quality">Compression Quality (1–100)</label>
+      <input type="number" id="quality" min="1" max="100" value="80">
+
+      <label for="format">Output Format</label>
+      <select id="format">
+        <option value="original">Keep Original</option>
+        <option value="image/jpeg">JPEG</option>
+        <option value="image/png">PNG</option>
+        <option value="image/webp">WebP</option>
+        <option value="image/gif">GIF</option>
+        <option value="image/avif">AVIF</option>
+        <option value="image/svg+xml">SVG</option>
+      </select>
+
+      <label for="resize">Resize (Max Width px)</label>
+      <input type="number" id="resize" placeholder="Optional">
+    </section>
+
+    <!-- In-content Ad -->
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR-ADSENSE-PUBLISHER-ID" data-ad-slot="YOUR-AD-UNIT-MIDDLE" data-ad-format="rectangle"></ins>
+    </div>
+
+    <section id="preview" class="preview"></section>
+
+    <!-- Bottom Content Ad -->
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR-ADSENSE-PUBLISHER-ID" data-ad-slot="YOUR-AD-UNIT-BOTTOM" data-ad-format="auto"></ins>
+    </div>
+  </main>
+
+  <!-- Sidebar Ad -->
+  <aside class="ads">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR-ADSENSE-PUBLISHER-ID" data-ad-slot="YOUR-AD-UNIT-SIDEBAR" data-ad-format="vertical"></ins>
+  </aside>
+
+  <footer>
+    <p>&copy; 2025 Online Image Compressor | All Rights Reserved</p>
+    <div class="ads">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-YOUR-ADSENSE-PUBLISHER-ID" data-ad-slot="YOUR-AD-UNIT-FOOTER" data-ad-format="link"></ins>
+    </div>
+  </footer>
+
+  <script>
+    const fileInput=document.getElementById('fileInput');
+    const preview=document.getElementById('preview');
+    fileInput.addEventListener('change',handleFiles);
+
+    function handleFiles(){
+      preview.innerHTML='';
+      [...fileInput.files].forEach(file=>{
+        const reader=new FileReader();
+        reader.onload=e=>{
+          const img=new Image();
+          img.src=e.target.result;
+          img.onload=()=>{
+            const canvas=document.createElement('canvas');
+            const ctx=canvas.getContext('2d');
+            let maxW=parseInt(document.getElementById('resize').value)||img.width;
+            let scale=maxW/img.width;
+            canvas.width=maxW;
+            canvas.height=img.height*scale;
+            ctx.drawImage(img,0,0,canvas.width,canvas.height);
+
+            let format=document.getElementById('format').value;
+            if(format==='original') format=file.type;
+            let quality=document.getElementById('quality').value/100;
+
+            canvas.toBlob(blob=>{
+              const url=URL.createObjectURL(blob);
+              const div=document.createElement('div');
+              div.innerHTML=`<p>${file.name}</p><img src="${url}"><br><a href="${url}" download="compressed-${file.name}">Download</a>`;
+              preview.appendChild(div);
+            },format,quality);
+          };
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    (adsbygoogle=window.adsbygoogle||[]).push({});
+  </script>
+</body>
+</html>
